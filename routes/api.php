@@ -13,4 +13,5 @@ Route::post('/auth/login', [UserController::class, 'loginUser']);
 Route::post('/auth/register', [UserController::class, 'createUser']);
 Route::post('/auth/logout', [UserController::class, 'logout'])->middleware('auth:sanctum');
 
-Route::apiResource('expenses', ExpenseController::class);
+// Route::apiResource('expenses', ExpenseController::class);
+Route::apiResource('expenses', ExpenseController::class)->middleware('auth:sanctum');

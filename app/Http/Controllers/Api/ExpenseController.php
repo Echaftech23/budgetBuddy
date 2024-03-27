@@ -136,6 +136,8 @@ class ExpenseController extends Controller
 
         try {
 
+            $this->authorize('update', $expense);
+
             abort_if(!$expense, 404, 'Expense not found.');
 
             $expense->update($request->all());
@@ -174,6 +176,8 @@ class ExpenseController extends Controller
     {
 
         try {
+
+            $this->authorize('delete', $expense);
 
             abort_if(!$expense, 404, 'Expense not found.');
 
